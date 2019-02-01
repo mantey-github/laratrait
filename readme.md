@@ -4,8 +4,7 @@
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
 
-
-Laratrait is an easy way to add traits (trait folder and trait stub) to your laravel projects, using the artisan command ``` php artisan laratrait:trait <TraitName> ```
+Laratrait is an easy way to add traits (trait folder and trait stub) to your laravel projects, using the artisan command ``` php artisan laratrait:trait TraitName ```
 
 ## Installation
 
@@ -24,10 +23,10 @@ $ php artisan
 ```
 
 
-To make a trait just run the command below. `CustomTrait`, being the name of your trait.
+To make a trait just run the command below. `TraitName`, being the name of your trait.
 
 ``` bash
-$ php artisan laratrait:trait CustomTrait
+$ php artisan laratrait:trait TraitName
 ```
 
 ## Contributing
