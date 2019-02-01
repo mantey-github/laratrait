@@ -1,6 +1,6 @@
 # Laratrait
 
-[![Software License][ico-license]](LICENSE.md)
+[![Software License][ico-license]](LICENSE)
 
 Laratrait is an easy way to add traits (trait folder and trait stub) to your laravel projects, using the artisan command ``` php artisan laratrait:trait TraitName ```
 
