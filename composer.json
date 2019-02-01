@@ -1,0 +1,37 @@
+{
+    "name": "mantey/laratrait",
+    "description": "An easy way to create a trait with php artisan command",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel Mantey",
+            "email": "contactmantey@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/mantey/laratrait",
+    "keywords": ["Laravel", "laratrait", "artisan", "trait", "laravel traits", "command"],
+    "require": {
+        "php": ">=5.6.0",
+        "laravel/framework": "~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mantey\\Laratrait\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mantey\\Laratrait\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mantey\\Laratrait\\LaratraitServiceProvider"
+            ],
+            "aliases": {
+                "Laratrait": "Mantey\\Laratrait\\LaratraitFacade"
+            }
+        }
+    }
+}
