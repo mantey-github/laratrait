@@ -2,8 +2,7 @@
 
 namespace DummyNamespace;
 
-class DummyClass
+trait DummyClass
 {
     //
-
 }
