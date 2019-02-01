@@ -2,6 +2,7 @@
     "name": "mantey/laratrait",
     "description": "An easy way to create a trait with php artisan command",
     "keywords": ["Laravel", "laratrait", "artisan", "trait", "laravel traits", "command"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Daniel Mantey",
