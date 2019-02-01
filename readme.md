@@ -22,7 +22,6 @@ The command below should show ```laratrait:trait``` as one of the artisan comman
 $ php artisan
 ```
 
-
 To make a trait just run the command below. `TraitName`, being the name of your trait.
 
 ``` bash
@@ -38,4 +37,10 @@ Please report any issue you find in the issues page. Pull requests are always we
 Laratrait is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
 
 
+[ico-version]: https://img.shields.io/packagist/v/mantey/laratrait.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/mantey/laratrait.svg?style=flat-square
 
+[link-packagist]: https://packagist.org/packages/mantey/laratrait
+[link-downloads]: https://packagist.org/packages/mantey/laratrait
+[link-author]: https://github.com/mantey-github
