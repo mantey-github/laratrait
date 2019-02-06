@@ -16,7 +16,7 @@ $ composer require mantey/laratrait
 
 ## Usage
 
-The command below should show ```laratrait:trait``` as one of the artisan commands after installation
+The command below should show ```make:trait``` as one of the artisan commands after installation.
 
 ``` bash
 $ php artisan
@@ -25,7 +25,13 @@ $ php artisan
 To make a trait just run the command below. `TraitName`, being the name of your trait.
 
 ``` bash
-$ php artisan laratrait:trait TraitName
+$ php artisan make:trait TraitName
+```
+
+To specify the path for the trait use the option `--path` and the`--func` option adds a function to your trait.
+
+``` bash
+$ php artisan make:trait TraitName --path=PathName --func=FunctionName
 ```
 
 ## Contributing

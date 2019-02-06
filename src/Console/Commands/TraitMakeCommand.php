@@ -65,9 +65,6 @@ class TraitMakeCommand extends GeneratorCommand
         $path = $this->getPath($name);
 
         $functionName = $this->option('func');
-//        if ($functionName) {
-//            dd($functionName);
-//        }
 
         // First we will check to see if the class already exists. If it does, we don't want
         // to create the class and overwrite the user's code. So, we will bail out so the
