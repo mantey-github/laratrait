@@ -4,5 +4,7 @@ namespace DummyNamespace;
 
 trait DummyClass
 {
-    //
+    public function DummyFunction() {
+         //
+    }
 }
