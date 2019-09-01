@@ -31,7 +31,13 @@ $ php artisan make:trait TraitName
 To specify the path for the trait use the option `--path` and the`--func` option adds a function to your trait.
 
 ``` bash
-$ php artisan make:trait TraitName --path=PathName --func=FunctionName
+$ php artisan make:trait TraitName --path=pathName --func=functionName
+```
+
+To generate traits with multiple functions.
+
+``` bash
+$ php artisan make:trait TraitName --func=foo,bar,foobar
 ```
 
 ## Contributing
