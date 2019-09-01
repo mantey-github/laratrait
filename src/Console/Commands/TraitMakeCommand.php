@@ -31,6 +31,9 @@ class TraitMakeCommand extends GeneratorCommand
      */
     protected $type = 'Trait';
 
+
+    protected $functionStub = "\tpublic function {DummyFunction}()\n\t{\n\n\t}\n\n";
+
     /**
      * Get the stub file for the generator.
      *
@@ -38,19 +41,19 @@ class TraitMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/trait.stub';
+        return __DIR__ . '/stubs/trait.stub';
     }
 
     /**
      * Get the default namespace for the class.
      *
-     * @param  string  $rootNamespace
+     * @param  string $rootNamespace
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
     {
         $pathName = rtrim($this->option('path'), '/');
-        return $rootNamespace.( $pathName ? "\\".$pathName : "" ).'\Traits';
+        return $rootNamespace . ($pathName ? "\\" . $pathName : "") . '\Traits';
     }
 
     /**
@@ -61,16 +64,16 @@ class TraitMakeCommand extends GeneratorCommand
      */
     public function handle()
     {
-        $name = $this->qualifyClass( trim($this->argument('name')) );
+        $name = $this->qualifyClass(trim($this->argument('name')));
         $path = $this->getPath($name);
 
-        $functionName = $this->option('func');
+        $func = $this->option('func');
 
         // First we will check to see if the class already exists. If it does, we don't want
         // to create the class and overwrite the user's code. So, we will bail out so the
         // code is untouched. Otherwise, we will continue generating this class' files.
-        if ((! $this->hasOption('force') || ! $this->option('force')) && $this->alreadyExists(trim($this->argument('name')))) {
-            $this->error($this->type.' already exists!');
+        if ((!$this->hasOption('force') || !$this->option('force')) && $this->alreadyExists(trim($this->argument('name')))) {
+            $this->error($this->type . ' already exists!');
 
             return false;
         }
@@ -80,33 +83,40 @@ class TraitMakeCommand extends GeneratorCommand
         // stub files so that it gets the correctly formatted namespace and class name.
         $this->makeDirectory($path);
 
-        $this->files->put($path, $this->buildClass($name, $functionName));
+        $this->files->put($path, $this->buildTrait($name, $func));
 
-        $this->info($this->type.' created successfully.');
+        $this->info($this->type . ' created successfully.');
     }
 
 
     /**
-     * Build the class with the given name.
+     * Build the trait with the given name.
      *
      * @param  string $name
-     * @param null $functionName
+     * @param null $func
      * @return string
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    protected function buildClass($name, $functionName=null)
+    protected function buildTrait($name, $func = null)
     {
         $stub = $this->files->get($this->getStub());
 
-        $stub = $this->replaceFunction($stub, $name, $functionName);
+        $stub = $this->replaceFunction($stub, $func);
 
         return $this->replaceNamespace($stub, $name)->replaceClass($stub, $name);
     }
 
 
-    public function replaceFunction($stub, $name, $functionName)
+    public function replaceFunction($stub, $func)
     {
-        $stub = str_replace('DummyFunction', $functionName, $stub);
+        $functionNames = explode(',', $func);
+
+        $functionList = "";
+        foreach ($functionNames as $functionName) {
+            $functionList .= str_replace('{DummyFunction}', $functionName, $this->functionStub);
+        }
+
+        $stub = str_replace('{DummyFunctions}', rtrim($functionList, "\n"), $stub);
 
         return $stub;
     }
